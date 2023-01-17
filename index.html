@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+  </head>
+
+  <body>
+    <article class="container">
+      <header>
+        <img width="70px" height="70px" src="img/logo.png" />
+      </header>
+      <section class="details" id="boardDetails">
+        <div class="input">
+          <img width="40px" height="40px" src="img/player.png" />
+          <span>Player 1 Name:</span>
+
+          <input id="player1" type="text" class="focus" />
+        </div>
+
+        <div class="input">
+          <img width="40px" height="40px" src="img/player2.png" />
+          <span>Player 2 Name:</span>
+
+          <input id="player2" type="text" class="focus" />
+        </div>
+
+        <!-- <p>select board size :</p> -->
+        <div class="bd">
+          <span>Select Board Size</span>
+          <select name="boardsize" id="boardsize" class="boardsize">
+            <option value="3">Select</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+        <button id="gamestart" onclick="startgame()" class="startgame">
+          Start Game
+        </button>
+      </section>
+      <section id="board-container" class="board">
+        <p id="turn" class="turn"></p>
+
+        <div id="reset" onClick="refreshPage()">
+          <img width="30px" height="30px" src="img/refresh.png" />
+        </div>
+      </section>
+    </article>
+  </body>
+  <script src="index.js"></script>
+
+  <script>
+    $("input").on("focusin", function () {
+      $(this).parent().find("label").addClass("active");
+    });
+
+    $("input").on("focusout", function () {
+      if (!this.value) {
+        $(this).parent().find("label").removeClass("active");
+      }
+    });
+  </script>
+</html>
